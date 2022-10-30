@@ -1,7 +1,7 @@
 # Thumbnail-Generator triggered upon uploading a file to S3-Bucket on AWS
 
 - Listens for an S3-Bucket-Object-Created-Event
-- Executes a Lambda which puts a thumbnail with a uuid into the bucket's "thumbnail"-folder" & saves thumbnail-uuid-mapping in c
+- Executes a Lambda which puts a thumbnail with a uuid into the bucket's "thumbnail"-folder" & saves thumbnail-uuid-mapping in a Dynambo-DB
 - Provides a Rest-Api for the thumbnail image, which uses the Dynamodb to look thumbnail-uuid-mapping and returns thumbnail-image from the S3-Bucket 
 
 Solved Problems:
