@@ -1,5 +1,5 @@
 import * as cdk from "aws-cdk-lib";
-import { Duration } from "aws-cdk-lib";
+import { Duration, RemovalPolicy } from "aws-cdk-lib";
 import { Construct } from "constructs";
 import {
   Architecture,
@@ -18,6 +18,8 @@ export class Cdk6Stack extends cdk.Stack {
 
     const s3 = new cdk.aws_s3.Bucket(this, "thumbnails", {
       bucketName: "123-test-thumbnails",
+      removalPolicy: RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
     });
 
     const thumbnailDb = new cdk.aws_dynamodb.Table(this, "testthumbnails", {
@@ -26,6 +28,7 @@ export class Cdk6Stack extends cdk.Stack {
         type: AttributeType.STRING,
         name: "imageName",
       },
+      removalPolicy: RemovalPolicy.DESTROY,
     });
 
     const resizerHandler = new cdk.aws_lambda.DockerImageFunction(
