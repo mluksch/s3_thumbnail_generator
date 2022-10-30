@@ -2,7 +2,7 @@
 
 - Listens for an S3-Bucket-Object-Created-Event
 - Executes a Lambda which puts a thumbnail with a uuid into the bucket's "thumbnail"-folder" & saves thumbnail-uuid-mapping in a Dynambo-DB
-- Provides a Rest-Api for the thumbnail image, which uses the Dynamodb to look thumbnail-uuid-mapping and returns thumbnail-image from the S3-Bucket 
+- Provides a Rest-Api for the thumbnail image, which uses the Dynamodb in order to look up thumbnail-uuid-mapping and returns thumbnail-image from the S3-Bucket 
 
 Solved Problems:
 - Needed to use a Dockerfile for the Lambda Code because of the library "sharp" which resizes images.
